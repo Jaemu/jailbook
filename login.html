@@ -1,0 +1,25 @@
+<script>
+
+   function login() {      
+      if($("#uid").val()=="" || $("#pw").val()=="")  {
+         popup("Please enter a valid username and password combonation to log in.")
+      } else {        
+         window.location="#profile";
+         $("#jblogo_big").slideUp();
+         $("#jbheader").slideDown();
+         $("#header").animate({"width": "100%"});
+      }
+   }
+
+</script>
+
+
+
+<div class="paper" id="login">
+     Please Log in with your Jailbook account,<br> or hit Create Account to make a new account<br />
+    <input type="text" placeholder="Jail ID" id="uid"><br />
+    <input type="password" placeholder="Password" id="pw"><br />
+    <input class="button" type="button" value="Log In" onclick="login()">
+    <input class="button" type="button" value="Create Account" onclick="href('#createaccount')">
+</div>
+

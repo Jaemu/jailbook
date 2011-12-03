@@ -1,0 +1,157 @@
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+  <script src="jquery.hashchange.js"></script>
+
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  background: URL(cinder.jpg);
+  margin: 0px;
+}
+div#header {
+   font-size: 20px;
+   width: 650px;
+   padding: 0px 10px 0px 10px;
+   background: #23479f;
+   box-shadow: 0px 1px 5px #222;   
+   margin: 0px auto;
+}
+div#login {
+  text-align: center;
+  width: 400px;
+}
+div.paper {
+   box-shadow: 0px 1px 5px #222;
+   background: URL(paper.jpg);
+   margin: 20px auto;
+   padding: 20px;
+   border-radius: 3px;
+   color: #333;
+}
+
+input {
+  background: #ccc;
+  border: 1px solid #000;
+  box-shadow: 0px 1px 2px #222;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px;
+  color: black;
+}
+input::-webkit-input-placeholder { color: black; }
+input.button:active {
+  background: #666;
+  box-shadow: 0px 0px 0px;
+}
+
+div#content {
+   position: absolute;
+   width: 100%; 
+}
+
+div#loading {
+   position: absolute;
+   width: 100px;
+   text-align: center;
+   left: 50%;
+   margin-left: -60px      
+          
+}
+
+div#jbheader {
+   display: none;
+   width: 800px;
+   margin: 0px auto;          
+}
+
+div#jblogo_big {
+   text-align: center;
+ }
+
+div#main {
+   width: 800px;
+   margin: 20px auto;          
+}
+
+div#blockcontent {
+   background: URL(bars.png);
+   background: #000;               
+   width: 100%;
+   height: 100%;
+   opacity: 0.5;
+   top: -100%; left: 0;
+   position: absolute;   
+   z-index: 1000;
+             
+}
+
+div#message {
+   position: absolute;             
+   width: 320px;
+   height: 223px;
+   padding-top: 20px;
+   padding-bottom: 0px;
+   padding-right: 180px;
+   top: 50%;
+   right: 150%;    
+   text-align: center;
+   font-size: 15px;
+   margin-top: -111px;
+   margin-right: -260px;
+   z-index: 1000;
+   background: URL(beating.jpg);
+}
+
+</style>
+	<script>
+   $(window).hashchange(function() {   
+      var newpage = (location.hash).substr(1);
+      $("#loading").fadeIn();
+      $("#content").animate({'right': '100%'}, 500, function() { 
+         $("#loading").fadeOut();
+         $.get(newpage+".html", function(data) {
+           $("#content").html(data);
+           $("#content").css("right", "");           
+           $("#content").css("left", "100%");
+           $("#content").animate({'left': '0%'}, function() {$("#content").css("left", ""); });
+         });
+      });         
+
+   });
+
+   function href(url) { window.location=url; }
+   function popup(message) {
+      $("#blockcontent").animate({'top': '0%'});
+      $("#message").animate({'right': '50%'}); 
+      $("#message").html("<b>Woah there, Calm down!</b><hr>"+message+"<hr><input type='button' onclick='closepopup()' value='Okay!'>");
+   }
+
+   function closepopup() {
+      $("#blockcontent").animate({'top': '-100%'});
+      $("#message").animate({'right': '150%'});       
+   }
+
+   if(location.hash=="#login") window.location="";        
+   window.location="#login";   
+
+	</script>
+<body>
+
+<div id="blockcontent"></div>
+<div id="message" class="paper"></div>
+
+<div id="header">
+  <div id="jblogo_big"><img src="jailbook_main.jpg"></div>
+  <div id="jbheader"><img src="jailbook.jpg"></div>
+</div>
+
+<div id="loading" class="paper">
+   Loading ...
+</div>
+
+<div id="content">
+</div>
+
+
+</body>
+
