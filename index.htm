@@ -1,6 +1,6 @@
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>	
   <script src="jquery.hashchange.js"></script>
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
 
 <style type="text/css">
 body {
@@ -102,19 +102,36 @@ div#message {
    background: URL(beating.jpg);
 }
 
+div#tabs {
+  float: right;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.tabs {
+   text-decoration: none;
+   color: black;
+   padding: 5px;       
+}
+
 </style>
 	<script>
    $(window).hashchange(function() {   
       var newpage = (location.hash).substr(1);
+      $(".tabs").css("background", "");      
+      $("#tab_"+newpage).css("background", "#102657");
+
+
       $("#loading").fadeIn();
       $("#content").animate({'right': '100%'}, 500, function() { 
          $("#loading").fadeOut();
-         $.get(newpage+".html", function(data) {
+         $.ajax({url: newpage+".html", success: function(data) {
            $("#content").html(data);
            $("#content").css("right", "");           
            $("#content").css("left", "100%");
            $("#content").animate({'left': '0%'}, function() {$("#content").css("left", ""); });
-         });
+         }, cache: false});
       });         
 
    });
@@ -131,6 +148,9 @@ div#message {
       $("#message").animate({'right': '150%'});       
    }
 
+  //function markSelected(element) {
+ //}
+
    if(location.hash=="#login") window.location="";        
    window.location="#login";   
 
@@ -142,7 +162,13 @@ div#message {
 
 <div id="header">
   <div id="jblogo_big"><img src="jailbook_main.jpg"></div>
-  <div id="jbheader"><img src="jailbook.jpg"></div>
+  <div id="jbheader">
+      <img src="jailbook.jpg">
+      <div id="tabs">
+         <a href="#news" class="tabs" id="tab_news">News</a> &middot;
+         <a href="#profile" class="tabs" id="tab_profile">Profile</a>
+      </div>
+  </div>
 </div>
 
 <div id="loading" class="paper">
