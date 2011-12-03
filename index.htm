@@ -80,13 +80,13 @@ div#blockcontent {
    height: 100%;
    opacity: 0.5;
    top: -100%; left: 0;
-   position: absolute;   
-   z-index: 1000;
+   position: fixed;   
+   z-index: 1000000;
              
 }
 
 div#message {
-   position: absolute;             
+   position: fixed;             
    width: 320px;
    height: 223px;
    padding-top: 20px;
@@ -98,7 +98,7 @@ div#message {
    font-size: 15px;
    margin-top: -111px;
    margin-right: -260px;
-   z-index: 1000;
+   z-index: 100000000;
    background: URL(beating.jpg);
 }
 
@@ -151,6 +151,16 @@ div#tabs {
       $("#message").animate({'right': '150%'});       
    }
 
+   function logout() {
+         $("#jblogo_big").slideDown();
+         $("#jbheader").slideUp();        
+         $("#header").css({"position": "static"});     
+         $("#content").css("padding-top", "0");
+         $("#loading").css("top", "0");                    
+         $("#header").animate({"width": "650px"});
+   }
+
+
    if(location.hash=="#login") window.location="";        
    window.location="#login";   
 
@@ -170,8 +180,7 @@ div#tabs {
          <a href="#yard" class="tabs" id="tab_yard">The Yard</a> &middot;
          <a href="#gang" class="tabs" id="tab_gang">Your Gang</a> &middot;
          <a href="#find" class="tabs" id="tab_find">Find Inmates</a>
-         
-         
+         <a href="#login" class="tabs" onclick="logout()">Log Out</a>                  
       </div>
   </div>
 </div>
