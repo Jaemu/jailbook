@@ -113,6 +113,7 @@ div#tabs {
    text-decoration: none;
    color: black;
    padding: 5px;       
+   font-weight: bold;   
 }
 
 </style>
@@ -120,7 +121,9 @@ div#tabs {
    $(window).hashchange(function() {   
       var newpage = (location.hash).substr(1);
       $(".tabs").css("background", "");      
+      $(".tabs").css("color", "#000");           
       $("#tab_"+newpage).css("background", "#102657");
+      $("#tab_"+newpage).css("color", "#fff");
 
 
       $("#loading").fadeIn();
@@ -148,9 +151,6 @@ div#tabs {
       $("#message").animate({'right': '150%'});       
    }
 
-  //function markSelected(element) {
- //}
-
    if(location.hash=="#login") window.location="";        
    window.location="#login";   
 
@@ -165,8 +165,13 @@ div#tabs {
   <div id="jbheader">
       <img src="jailbook.jpg">
       <div id="tabs">
-         <a href="#news" class="tabs" id="tab_news">News</a> &middot;
-         <a href="#profile" class="tabs" id="tab_profile">Profile</a>
+         <a href="#sup" class="tabs" id="tab_sup">Whats Up</a> &middot;
+         <a href="#cellwall" class="tabs" id="tab_cellwall">Cell Wall</a> &middot;
+         <a href="#yard" class="tabs" id="tab_yard">The Yard</a> &middot;
+         <a href="#gang" class="tabs" id="tab_gang">Your Gang</a> &middot;
+         <a href="#find" class="tabs" id="tab_find">Find Inmates</a>
+         
+         
       </div>
   </div>
 </div>
