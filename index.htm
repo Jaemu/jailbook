@@ -54,8 +54,8 @@ div#loading {
    width: 100px;
    text-align: center;
    left: 50%;
-   margin-left: -60px      
-          
+   margin-left: -60px;
+   top: 37px;      
 }
 
 div#jbheader {
@@ -159,7 +159,6 @@ hr {
          $("#jbheader").slideUp();        
          $("#header").css({"position": "static"});     
          $("#content").css("padding-top", "0");
-         $("#loading").css("top", "0");                    
          $("#header").animate({"width": "650px"});
    }
    
@@ -178,10 +177,10 @@ hr {
   <div id="jbheader">
       <img src="jailbook.jpg">
       <div id="tabs">
-         <a href="#sup" class="tabs" id="tab_sup">Whats Up</a> &middot;
-         <a href="#cellwall" class="tabs" id="tab_cellwall">Cell Wall</a> &middot;
-         <a href="#yard" class="tabs" id="tab_yard">The Yard</a> &middot;
-         <a href="#gang" class="tabs" id="tab_gang">Your Gang</a> &middot;
+         <a href="#sup" class="tabs" id="tab_sup">Whats Up</a>
+         <a href="#cellwall" class="tabs" id="tab_cellwall">Cell Wall</a>
+         <a href="#yard" class="tabs" id="tab_yard">The Yard</a>
+         <a href="#gang" class="tabs" id="tab_gang">Your Gang</a>
          <a href="#find" class="tabs" id="tab_find">Find Inmates</a>
          <a href="#login" class="tabs" onclick="logout()">Log Out</a>                  
       </div>
