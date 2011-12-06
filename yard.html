@@ -10,6 +10,8 @@ function postItem() {
    var post = $('<div class="pinned paper" style="height:175px; width:95%"><div class="pin"><img src="pin.png" style="height:50px; float:right;"><img src="pin.png" style="height:50px; float:left;"></div><div style="float: left"><div style="float: left; height:90px;"><img src="tonyb.jpg" style=" width: 100px;"></div><div style="margin-left: 110px"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a> <br /><b>Type</b>: '+$("#itemtype").val()+'</br><b>Description:<br /></b>'+$("#itemdesc").val()+'</div></div><div id="right" style="float:right"><input class="button" type="button"  value="Request to Buy" onclick="popup(\'unimplemented\')"></div></div>')
    
    $("#posts").append(post);
+   $("#itemtype").val("");
+   $("#itemdesc").val("");
 
 }
 
