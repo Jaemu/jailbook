@@ -10,42 +10,67 @@ div.corkboard {
    border-radius: 3px;
    color: #333;
 }
+
+div.pin {
+   height: 50px;
+   display: block;
+   margin: 0px -10px 0px -20px;            
+}
+
+div.pinned {
+   padding-top: 10px;
+}
 </style>
 
 <div class="corkboard" id="main">
-	<div id = "main" class="paper" style="height:175px; width:95%">
-	<img src="pin.png" style="height:50px; float:right;">
-	<img src="pin.png" style="height:50px; float:left;">
-		<div id="left" style="float: left; height:90px;">
-			<img src="Brian-Hardy.jpg" style="height:90px; padding-top:50px" align="left">
+
+	<div class="pinned paper" style="height:175px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="Brian-Hardy.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+            <span style="font-size:15px"><a href="#profile/rhandy"><b>Brian Hardy</b></a> <br />
+            <b>Type</b>: Goods </br>
+            <b>Description</b>: Let's keep this on the DL, but I just got my hands on<br />
+             a bottle of vicodin. Willing to part with it for 15 &cent;igs or best offer.</span>
+         </div>
 		</div>
-		<div id="right" style="float: left; height:90px; padding-top:15px; padding-left:20px;">
-			<span style="font-size:15px"><a href="#profile/rhandy"><b>Brian Hardy</b></a> <br />
-			<b>Type</b>: Goods </br>
-			<b>Description</b>: Let's keep this on the DL, but I just got my hands on<br />
-			 a bottle of vicodin. Willing to part with it for 15 ¢igs or best offer.</span>
-		</div>
-		
 		<div id="right" style="float:right">
 			<input class="button" type="button" value="Request to buy" onclick="href('#yard')">
 		</div>
-	</div>
-	<div id = "main" class="paper" style="height:175px; width:95%">
-	<img src="pin.png" style="height:50px; float:right;">
-	<img src="pin.png" style="height:50px; float:left;">
-		<div id="left" style="float: left; height:90px;">
-			<img src="Jill-Munson.jpg" style="height:90px; padding-top:50px" align="left">
+   </div>
+
+
+
+
+	<div class="pinned paper" style="height:175px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="Jill-Munson.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+   			<span style="font-size:15px"><a href="#profile/jmunson"><b>Mini Taco</b></a> <br />
+	   		<b>Type</b>: Goods </br>
+		   	<b>Description</b>: MONOCLES!!! I have a limited supply of monocles. Need to <br />
+			   look fancy for that <i>special</i> person in your life? Only 2 &cent;igs and you'll be<br />
+   			the classiest inmate in your cell block!</span>
+         </div>
 		</div>
-		<div id="right" style="float: left; height:90px; padding-top:15px; padding-left:20px;">
-			<span style="font-size:15px"><a href="#profile/jmunson"><b>Mini Taco</b></a> <br />
-			<b>Type</b>: Goods </br>
-			<b>Description</b>: MONOCLES!!! I have a limited supply of monocles. Need to <br />
-			look fancy for that <i>special</i> person in your life? Only 2 ¢igs and you'll be<br />
-			the classiest inmate in your cell block!</span>
-		</div>
-		
 		<div id="right" style="float:right">
 			<input class="button" type="button" value="Request to buy" onclick="href('#yard')">
 		</div>
+
+
 	</div>
 </div>
