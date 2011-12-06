@@ -1,12 +1,12 @@
 <script>
 
 function shiv() {
-   popup_v("Are you sure you want to shiv this person?", "Sharpen that toothbrush!", "shiv.jpg", 
+   popup_v("You sure you want to shiv this person?", "Better sharpen that toothbrush!", "shiv.jpg", 
      function() { // YES
             $("#shiv").slideUp();
             $("#addg").val("Add to Gang");
             $("#addg").click(function() {
-                  popup_v("Are you sure you want to add them to your gang?", "Seriously, this guy?", "beating.jpg", 
+                  popup_v("You sure you want to add this person to your gang?", "What up brother?", "addgang.jpg", 
                      function() { // YES
                         $("#addg").val("Already in Gang");
                         $("#addg").unbind("click");
