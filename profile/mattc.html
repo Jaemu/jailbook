@@ -25,7 +25,20 @@ function keepBottom() {
 }
 </script>
 
+<script>
 
+$(".bitch").click(function(e) {
+   var obj = e.target;
+   popup_v("Are you sure you want <i>this</i> person to be your bitch?", "Bitches be hatin?", "shiv.jpg", 
+     function() { // YES
+            console.debug(obj);
+            $(obj).val("Request Sent");
+            $(obj).unbind("click");
+
+        }, function() {});
+});
+
+</script>
 
 <div class="paper" id="main" style="height:290px">
    <div id="stuff" style="height: 225px;">
@@ -34,7 +47,7 @@ function keepBottom() {
          <img src="mattc.jpg" style="height: 120px;">
       </div>
       <div id="left" style="float: left;">
-         <span style="font-size: 30px">Matty Muse</span><input type="button" class="button" style="float:right" value="request relationship"><br />
+         <span style="font-size: 30px">Matty Muse</span><input type="button" class="bitch button" style="float:right" value="request relationship"><br />
          <span style="font-size: 15px">
             Currently has served <b>8 years 3 months</b> of <b>12 consectuive life </b>
             sentences for: <br>
@@ -59,7 +72,7 @@ function keepBottom() {
 <h1 align="center">Matty's Cell Wall</h1>
 <div id="posts">
 	<div id = "main" class="paper" style="height:90px;">
-		<div id="left" style="float: left; height:90px; width:240px">
+		<div id="left" style="float: left; height:90px; width:120px">
 			<img src="Brian-Hardy.jpg" style="height:90px" align="left">
 		</div>
 		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">

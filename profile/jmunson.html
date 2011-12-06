@@ -25,7 +25,20 @@ function keepBottom() {
 }
 </script>
 
+<script>
 
+$(".bitch").click(function(e) {
+   var obj = e.target;
+   popup_v("Are you sure you want <i>this</i> person to be your bitch?", "Bitches be hatin?", "shiv.jpg", 
+     function() { // YES
+            console.debug(obj);
+            $(obj).val("Request Sent");
+            $(obj).unbind("click");
+
+        }, function() {});
+});
+
+</script>
 
 <div class="paper" id="main">
    <div id="stuff" style="height: 225px;">
@@ -34,7 +47,7 @@ function keepBottom() {
          <img src="Jill-Munson.jpg" style="height: 120px;">
       </div>
       <div id="left" style="float: left; height: 120px">
-         <span style="font-size: 30px">Little Taco</span><input type="button" class="button" style="float:right" value="request relationship"><br />
+         <span style="font-size: 30px">Little Taco</span><input type="button" class="bitch button" style="float:right" value="request relationship"><br />
          <span style="font-size: 15px">
             Currently has served <b>2 years</b> of a <b>6 - 8 Year</b>
             sentence for: <br>
