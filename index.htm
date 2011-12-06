@@ -156,10 +156,17 @@ hr {
    });
 
    function href(url) { window.location=url; }
+
+
    function popup(message) {
+      popup_v(message, "Woah there, Calm down!", "beating.jpg");
+   }
+
+   function popup_v(message, title, image) {
+      $("#message").css("background-image", "URL('"+image+"')");      
       $("#blockcontent").animate({'top': '0%'});
       $("#message").animate({'right': '50%'}); 
-      $("#message").html("<b>Woah there, Calm down!</b><hr>"+message+"<hr><input type='button' onclick='closepopup()' value='Okay!'>");
+      $("#message").html("<b>"+title+"</b><hr>"+message+"<hr><input type='button' onclick='closepopup()' value='Okay!'>");
    }
 
    function closepopup() {
