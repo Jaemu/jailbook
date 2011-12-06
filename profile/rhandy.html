@@ -1,4 +1,28 @@
 <script type="text/javascript">
+var scrollBottom = false;
+
+function postItem() {
+   $("#addpost").slideDown();
+
+   $("#newpost").css({'display': 'none'});
+
+   var post = $('<div id = "main" class="paper" style="height:90px;"><div id="left" style="float: left; height:90px;"><img src="tonyb.jpg" style="height:90px" align="left"></div><div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>: '+$("#itemtype").val()+'</span></div></div>');
+   $("#posts").append(post);
+   $("#itemtype").val("");
+
+}
+
+function addPost() {
+   $("#addpost").slideUp();      
+   $("#newpost").css({'height': '0px', 'display': 'block'});
+   $("#newpost").animate({'height': '90px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
+}
+
+
+function keepBottom() {
+   $(window).scrollTop($(document).height());
+   if(scrollBottom) setTimeout(keepBottom, 10);
+}
 </script>
 
 
@@ -30,6 +54,8 @@
    Such a subtle troll
 </div>
 <h1 align="center">Brian's Cell Wall</h1>
+
+	<div id="posts">
 	<div id = "main" class="paper" style="height:90px;">
 		<div id="left" style="float: left; height:90px;">
 			<img src="tonyb.jpg" style="height:90px" align="left">
@@ -46,4 +72,20 @@
 			<span style="font-size:15px"><a href="#profile/mattc"><b>Matty Muse</b></a>: Yo, I heard you can "obtain" things. Meet me in the group shower to discuss</span>
 		</div>
 	</div>
+</div>
+<!-- This one is invisible, this is the form used to add a new post  -->
+	<div class="paper" id="newpost" style="display: none; width: 800px;">
+      <div id="left" style="float: left; height:90px;">
+			<img src="tonyb.jpg" style="height:90px" align="left">
+		</div>
+		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>:
+			<input type="text" placeholder="Write Your Post Here" id="itemtype"></span>
+		</div>
+		<div id="right" style="float:right">
+			<input class="button" type="button" value="Submit Item" onclick="postItem()">
+		</div>
+	</div>
+
+   <center><input type="button" id="addpost" value="Post on Brian Hardy's Wall!" onclick="addPost()"></center>
 
