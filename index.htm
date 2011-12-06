@@ -167,11 +167,14 @@ hr {
       $("#blockcontent").animate({'top': '0%'});
       $("#message").animate({'right': '50%'}); 
       $("#message").html("<b>"+title+"</b><hr>"+message+"<hr>");
-      var button = $("<input type='button' value='Okay!'>");
+	  if (no)
+		var button = $("<input type='button' value='Hellz Yeah!'>");
+	  else
+	    var button = $("<input type='button' value='Word!'>");
       $("#message").append(button);
       button.click(function() { closepopup(); yes(); });
       if(no) {
-         var button = $("<input type='button' value='Nope!'>");
+         var button = $("<input type='button' value='Hellz No!'>");
          $("#message").append(button);
          button.click(function() { closepopup(); no(); });
       }
