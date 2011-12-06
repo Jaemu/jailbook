@@ -7,7 +7,7 @@ function postItem() {
 
    $("#newpost").css({'display': 'none'});
 
-   var post = $('<div class="pinned paper" style="height:175px; width:95%"><div class="pin"><img src="pin.png" style="height:50px; float:right;"><img src="pin.png" style="height:50px; float:left;"></div><div style="float: left"><div style="float: left; height:90px;"><img src="tonyb.jpg" style=" width: 100px;"></div><div style="margin-left: 110px"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a> <br /><b>Type</b>: '+$("#itemtype").val()+'</br><b>Description:<br /></b>'+$("#itemdesc").val()+'</div></div><div id="right" style="float:right"><input class="button" type="button"  value="Request to Buy" onclick="popup(\'unimplemented\')"></div></div>')
+   var post = $('<div class="pinned paper" style="height:175px; width:95%"><div class="pin"><img src="pin.png" style="height:50px; float:right;"><img src="pin.png" style="height:50px; float:left;"></div><div style="float: left"><div style="float: left; height:90px;"><img src="tonyb.jpg" style=" width: 100px;"></div><div style="margin-left: 110px"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a> <br /><b>Type</b>: '+$("#itemtype").val()+'</br><b>Description:</b>'+$("#itemdesc").val()+'</div></div><div id="right" style="float:right"><input class="button" type="button"  value="Request to Buy" onclick="popup(\'unimplemented\')"></div></div>')
    
    $("#posts").append(post);
    $("#itemtype").val("");
@@ -16,8 +16,7 @@ function postItem() {
 }
 
 function addPost() {
-   $("#addpost").slideUp();   
-   
+   $("#addpost").slideUp();      
    $("#newpost").css({'height': '0px', 'display': 'block'});
    $("#newpost").animate({'height': '175px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
 }
@@ -76,8 +75,6 @@ div.pinned {
    </div>
 
 
-
-
 	<div class="pinned paper" style="height:175px; width:95%">
       <div class="pin">
       	<img src="pin.png" style="height:50px; float:right;">
@@ -103,7 +100,7 @@ div.pinned {
 
    </div>
 
-
+   <!-- This one is invisible, this is the form used to add a new post  -->
 	<div class="pinned paper" id="newpost" style="display: none; height:175px; width:95%">
       <div class="pin">
       	<img src="pin.png" style="height:50px; float:right;">
