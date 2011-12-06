@@ -1,4 +1,15 @@
 <script>
+
+function shiv() {
+   $("#shiv").slideUp();
+   $("#addg").val("Add to Gang");
+   $("#addg").click(function() {
+         $("#addg").val("Already in Gang");
+         $("#addg").click(function(){});
+         $("#shiv").slideDown();
+   });
+}
+
 </script>
 
 
@@ -10,8 +21,8 @@
          <div style="margin-left: 110px; padding-top:40px;">
             <span style="font-size:15px"><a href="#profile/mattc"><b>Matty Muse</b></a> <br />
             <b>Crimes<b>: Public Use of Bad Puns, Public Display of Affection with a Rubber Chicken, Mimery</span><br />
-			<input type="button" class="button" value="Already in Gang" onclick="addToGang()"> 
-			<input type="button" class="button" value="Shiv" onclick="shiv()">
+			<input id="addg" type="button" class="button" value="Already in Gang" > 
+			<input id="shiv" type="button" class="button" value="Shiv" onclick="shiv()">
          </div>
 	</div>
 </div>
