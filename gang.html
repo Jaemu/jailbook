@@ -11,6 +11,12 @@ $(".bitch").click(function(e) {
         }, function() {});
 });
 
+
+$(".shiv").click(function(e) {
+   popup_v("Are you sure you want to shiv this person?", "Sharpen that toothbrush!", "shiv.jpg", 
+     function() { $(e.target).parent().parent().parent().slideUp(); }, function() {} );
+   });
+
 </script>
 
 
@@ -37,7 +43,7 @@ $(".bitch").click(function(e) {
       <div id="left" style="float: left;">
          <a href="#profile/mattc" style="color: black; text-decoration: none"><span style="font-size: 30px">Matty Muse</span></a>
 		 <div style="float: right">
-		    <input type="button" class="button" style="float:right" value="shiv">
+		    <input type="button" class="shiv button" style="float:right" value="shiv">
 			<input type="button" class="bitch button" style="float:right" value="request relationship" ><br />
 		 </div>
          <hr style="width:500px">
@@ -54,7 +60,7 @@ $(".bitch").click(function(e) {
       <div id="left" style="float: left;">
          <a href="#profile/jmunson" style="color: black; text-decoration: none"><span style="font-size: 30px">Little Taco</span></a>
 		 <div style="float: right">
-		    <input type="button" class="button" style="float:right" value="shiv">
+		    <input type="button" class="shiv button" style="float:right" value="shiv">
 			<input type="button" class="bitch button" style="float:right" value="request relationship"><br />
 		 </div>
 		 <hr style="width:500px">
