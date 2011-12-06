@@ -1,0 +1,18 @@
+<script>
+
+   function search() {      
+      if($("#name").val()=="" && $("#cid").val()=="")  {
+         popup("Please enter either a name or a prisoner ID.")
+      } else {        
+         href("#result");
+	  }
+   }
+
+</script>
+
+<div class="paper" id="login">
+     Please enter the name or <br />
+    <input type="text" placeholder="Search by Name" id="name"><br />
+    <input type="text" placeholder="Search by Crime" id="cid"><br />
+    <input class="button" type="button" value="Look" onclick="search()">
+</div>
