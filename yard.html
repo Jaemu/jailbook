@@ -1,4 +1,31 @@
 <script type="text/javascript">
+
+var scrollBottom = false;
+
+function postItem() {
+   $("#addpost").slideDown();
+
+   $("#newpost").css({'display': 'none'});
+
+   var post = $('<div class="pinned paper" style="height:175px; width:95%"><div class="pin"><img src="pin.png" style="height:50px; float:right;"><img src="pin.png" style="height:50px; float:left;"></div><div style="float: left"><div style="float: left; height:90px;"><img src="tonyb.jpg" style=" width: 100px;"></div><div style="margin-left: 110px"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a> <br /><b>Type</b>: '+$("#itemtype").val()+'</br><b>Description:<br /></b>'+$("#itemdesc").val()+'</div></div><div id="right" style="float:right"><input class="button" type="button"  value="Request to Buy" onclick="popup(\'unimplemented\')"></div></div>')
+   
+   $("#posts").append(post);
+
+}
+
+function addPost() {
+   $("#addpost").slideUp();   
+   
+   $("#newpost").css({'height': '0px', 'display': 'block'});
+   $("#newpost").animate({'height': '175px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
+}
+
+
+function keepBottom() {
+   $(window).scrollTop($(document).height());
+   if(scrollBottom) setTimeout(keepBottom, 10);
+}
+
 </script>
 
 <style type="text/css">
@@ -23,7 +50,7 @@ div.pinned {
 </style>
 
 <div class="corkboard" id="main">
-
+   <div id="posts">
 	<div class="pinned paper" style="height:175px; width:95%">
       <div class="pin">
       	<img src="pin.png" style="height:50px; float:right;">
@@ -70,7 +97,34 @@ div.pinned {
 		<div id="right" style="float:right">
 			<input class="button" type="button" value="Request to buy" onclick="href('#yard')">
 		</div>
-
-
 	</div>
+
+   </div>
+
+
+	<div class="pinned paper" id="newpost" style="display: none; height:175px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="tonyb.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+   			<span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a> <br />
+                  <input type="text" placeholder="Item Type" id="itemtype"><br>
+                  <textarea rows="3" cols="50" id="itemdesc" placeholder="Item Description"></textarea>
+            </span>
+         </div>
+		</div>
+		<div id="right" style="float:right">
+			<input class="button" type="button" value="Submit Item" onclick="postItem()">
+		</div>
+	</div>
+
+   <center><input type="button" id="addpost" value="Post New Item to Yard!" onclick="addPost()"></center>
+
+
 </div>
