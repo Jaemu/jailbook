@@ -1,13 +1,19 @@
 <script>
 
 function shiv() {
-   $("#shiv").slideUp();
-   $("#addg").val("Add to Gang");
-   $("#addg").click(function() {
-         $("#addg").val("Already in Gang");
-         $("#addg").click(function(){});
-         $("#shiv").slideDown();
-   });
+   popup_v("Are you sure you want to shiv this person?", "Sharpen that toothbrush!", "shiv.jpg", 
+     function() { // YES
+            $("#shiv").slideUp();
+            $("#addg").val("Add to Gang");
+            $("#addg").click(function() {
+                  popup_v("Are you sure you want to add them to your gang?", "Seriously, this guy?", "beating.jpg", 
+                     function() { // YES
+                        $("#addg").val("Already in Gang");
+                        $("#addg").unbind("click");
+                        $("#shiv").slideDown();         
+                     }, function() { /* NO */ });               
+            });
+     }, function() {});
 }
 
 </script>
