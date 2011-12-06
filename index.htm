@@ -159,14 +159,17 @@ hr {
 
 
    function popup(message) {
-      popup_v(message, "Woah there, Calm down!", "beating.jpg");
+      popup_v(message, "Woah there, Calm down!", "beating.jpg", function() {});
    }
 
-   function popup_v(message, title, image) {
+   function popup_v(message, title, image, after) {
       $("#message").css("background-image", "URL('"+image+"')");      
       $("#blockcontent").animate({'top': '0%'});
       $("#message").animate({'right': '50%'}); 
-      $("#message").html("<b>"+title+"</b><hr>"+message+"<hr><input type='button' onclick='closepopup()' value='Okay!'>");
+      $("#message").html("<b>"+title+"</b><hr>"+message+"<hr>");
+      var button = $("<input type='button' value='Okay!'>");
+      $("#message").append(button);
+      button.click(function() { closepopup(); after(); });
    }
 
    function closepopup() {
