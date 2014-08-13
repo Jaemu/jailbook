@@ -1,0 +1,34 @@
+<script>
+
+function shiv() {
+   popup_v("You sure you want to shiv this person?", "Better sharpen that toothbrush!", "shiv.jpg", 
+     function() { // YES
+            $("#shiv").slideUp();
+            $("#addg").val("Add to Gang");
+            $("#addg").click(function() {
+                  popup_v("You sure you want to add this person to your gang?", "What up brother?", "addgang.jpg", 
+                     function() { // YES
+                        $("#addg").val("Already in Gang");
+                        $("#addg").unbind("click");
+                        $("#shiv").slideDown();         
+                     }, function() { /* NO */ });               
+            });
+     }, function() {});
+}
+
+</script>
+
+
+<div class="paper" id="main" style="height:130px">
+	<div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="mattc.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px; padding-top:40px;">
+            <span style="font-size:15px"><a href="#profile/mattc"><b>Matty Muse</b></a> <br />
+            <b>Crimes<b>: Public Use of Bad Puns, Public Display of Affection with a Rubber Chicken, Mimery</span><br />
+			<input id="addg" type="button" class="button" value="Already in Gang" > 
+			<input id="shiv" type="button" class="button" value="Shiv" onclick="shiv()">
+         </div>
+	</div>
+</div>

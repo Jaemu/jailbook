@@ -1,0 +1,149 @@
+<script type="text/javascript">
+
+var scrollBottom = false;
+
+function postItem() {
+   $("#addpost").slideDown();
+
+   $("#newpost").css({'display': 'none'});
+
+   var post = $('<div class="pinned paper" style="height:175px; width:95%"><div class="pin"><img src="pin.png" style="height:50px; float:right;"><img src="pin.png" style="height:50px; float:left;"></div><div style="float: left"><div style="float: left; height:90px;"><img src="tonyb.jpg" style="width: 100px;"></div><div style="margin-left: 110px"><span style="font-size:20px"><a href="#profile/tonyb" style="color: black; text-decoration: none"><b>Tee Pain</b></a></span><br /><span style="font-size:15px"><b>Type</b>: '+$("#itemtype").val()+'</br><b>Description: </b>'+$("#itemdesc").val()+'</div></div></div>')
+
+   var rightdiv = $('<div id="right" style="float:right"></div>');
+   var rightbutton = $('<input class="button" type="button" value="Remove Item">');
+   rightbutton.click(function() { post.slideUp(); });
+   rightdiv.append(rightbutton);
+   post.append(rightdiv);
+
+   $("#posts").append(post);
+   $("#itemtype").val("");
+   $("#itemdesc").val("");
+
+}
+
+function addPost() {
+   $("#addpost").slideUp();      
+   $("#newpost").css({'height': '0px', 'display': 'block'});
+   $("#newpost").animate({'height': '175px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
+}
+
+function buy(e) {
+   var obj = e.target;
+   popup_v("Are you sure you want <i>this</i> item?", "They got the stuff?", "beating.jpg", 
+     function() { // YES
+            console.debug(obj);
+            $(obj).val("Request Sent");
+            $(obj).unbind("click");
+
+        }, function() {});
+};
+
+$(".buybutton").click(buy);
+
+
+</script>
+
+<style type="text/css">
+div.corkboard {
+   box-shadow: 0px 1px 5px #222;
+   background: URL(corkboard.jpg);
+   margin: 20px auto;
+   padding: 20px;
+   border-radius: 3px;
+   color: #333;
+}
+
+div.pin {
+   height: 50px;
+   display: block;
+   margin: 0px -10px 0px -20px;            
+}
+
+div.pinned {
+   padding-top: 10px;
+}
+</style>
+
+<div class="corkboard" id="main">
+   <div id="posts">
+	<div class="pinned paper" style="height:175px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="Brian-Hardy.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+            <span style="font-size:20px"><a href="#profile/rhandy" style="color: black; text-decoration: none"><b>Brian Hardy</b></a></span><br />
+            <span style="font-size:15px">
+			<b>Type</b>: Goods </br>
+            <b>Description</b>: Let's keep this on the DL, but I just got my hands on<br />
+             a bottle of vicodin. Willing to part with it for 15 &cent;igs or best offer.</span>
+         </div>
+		</div>
+		<div id="right" style="float:right">
+			<input class="buybutton button" type="button" value="Request to buy" onclick="href('#yard')">
+		</div>
+   </div>
+
+
+	<div class="pinned paper" style="height:220px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="Jill-Munson.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+   			<span style="font-size:20px"><a href="#profile/jmunson" style="color: black; text-decoration: none"><b>Little Taco</b></a></span> <br />
+			<span style="font-size:15px">
+	   		<b>Type</b>: Goods </br>
+		   	<b>Description</b>: MONOCLES!!! I have a limited supply of monocles. Need to <br />
+			   look fancy for that <i>special</i> person in your life? Only 2 &cent;igs and you'll be<br />
+   			the classiest inmate in your cell block!</span>
+         </div>
+		</div>
+		<div id="right" style="float:right">
+			<input class="buybutton button" type="button" value="Request to buy" onclick="href('#yard')">
+		</div>
+	</div>
+
+   </div>
+
+   <!-- This one is invisible, this is the form used to add a new post  -->
+	<div class="pinned paper" id="newpost" style="display: none; height:175px; width:95%">
+      <div class="pin">
+      	<img src="pin.png" style="height:50px; float:right;">
+	      <img src="pin.png" style="height:50px; float:left;">
+      </div>
+
+      <div style="float: left">
+	   	<div style="float: left; height:90px;">         
+		   	<img src="tonyb.jpg" style=" width: 100px;">
+   		</div>         
+         <div style="margin-left: 110px">
+   			<span style="font-size:20px">
+				<a href="#profile/tonyb" style="color: black; text-decoration: none"><b>Tee Pain</b></a>
+			</span><br />
+                  <span style="font-size:15px">
+				  <input type="text" placeholder="Item Type" id="itemtype"><br>
+                  <textarea rows="3" cols="50" id="itemdesc" placeholder="Item Description"></textarea>
+            </span>
+         </div>
+		</div>
+		<div id="right" style="float:right">
+			<input class="button" type="button" value="Submit Item" onclick="postItem()">
+		</div>
+	</div>
+   
+   <div id="addpost">
+   <center><input type="button"  value="Post New Item to Yard!" onclick="addPost()"></center>
+   </div>
+
+</div>

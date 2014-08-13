@@ -1,0 +1,71 @@
+<script>
+
+$(".bitch").click(function(e) {
+   var obj = e.target;
+   popup_v("Are you sure you want <i>this</i> person to be your bitch?", "Bitches be hatin?", "shiv.jpg", 
+     function() { // YES
+            console.debug(obj);
+            $(obj).val("Request Sent");
+            $(obj).unbind("click");
+
+        }, function() {});
+});
+
+
+$(".shiv").click(function(e) {
+   popup_v("Are you sure you want to shiv this person?", "Sharpen that toothbrush!", "shiv.jpg", 
+     function() { $(e.target).parent().parent().parent().slideUp(); }, function() {} );
+   });
+
+</script>
+
+
+<div class="paper" id="main" style="width:800px; height:120px;">
+      <div id="right" style="float: left; height: 120px; width: 240px"> 
+         <a href="#profile/rhandy"><img src="Brian-Hardy.jpg" style="height: 120px"></a>
+      </div>
+      <div id="left" style="float: left;">
+		 <div style="float: right">
+		    <input type="button" class="shiv button" style="float:right" value="shiv">
+		 </div>
+         <a href="#profile/rhandy" style="color: black; text-decoration: none"><span style="font-size: 30px">Brian Hardy</span></a><br />
+		 <hr style="width:500px">
+         <span style="font-size: 15px">
+			<b>Known Aliases: </b>Ryan Hardy, Brian Handy, Ryan Handy, "Randy" 
+         </span>
+      </div>
+</div>
+
+<div class="paper" id="main" style="width:800px; height:120px;">
+      <div id="right" style="float: left; height: 120px; width: 240px"> <!-- purely for animation -->
+         <a href="#profile/mattc"><img src="mattc.jpg" style="height: 120px"></a>
+      </div>
+      <div id="left" style="float: left;">
+         <a href="#profile/mattc" style="color: black; text-decoration: none"><span style="font-size: 30px">Matty Muse</span></a>
+		 <div style="float: right">
+		    <input type="button" class="shiv button" style="float:right" value="shiv">
+			<input type="button" class="bitch button" style="float:right" value="request relationship" ><br />
+		 </div>
+         <hr style="width:500px">
+		 <span style="font-size: 15px">
+            <b>Known Aliases: </b>Silent But Deadly, Clucker Lover, The two third pun: P-U
+         </span>
+      </div>
+</div>
+
+<div class="paper" id="main" style="width:800px; height:120px;">
+      <div id="right" style="float: left; height: 120px; width: 240px"> <!-- purely for animation -->
+         <a href="#profile/jmunson"><img src="Jill-Munson.jpg" style="height: 120px"></a>
+      </div>
+      <div id="left" style="float: left;">
+         <a href="#profile/jmunson" style="color: black; text-decoration: none"><span style="font-size: 30px">Little Taco</span></a>
+		 <div style="float: right">
+		    <input type="button" class="shiv button" style="float:right" value="shiv">
+			<input type="button" class="bitch button" style="float:right" value="request relationship"><br />
+		 </div>
+		 <hr style="width:500px">
+         <span style="font-size: 15px">
+            <b>Known Aliases:</b> Jilly Bean  
+         </span>
+      </div>
+</div>

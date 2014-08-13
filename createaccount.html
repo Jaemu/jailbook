@@ -1,0 +1,24 @@
+<script>
+
+   function create() {      
+      if($("#uid").val()=="" || $("#pw").val()=="" || $("#pw2").val()=="" || $("#jid").val()=="")  {
+         popup("You need to fill in all the fields before we can move along.")
+      } 
+	  else if($("#pw").val()==$("#pw2").val())  {
+		login();
+      } else {        
+         popup("Make sure you entered the same password in both password fields.")
+      }
+   }
+
+</script>
+
+<div class="paper" id="login">
+    Okay, just enter this information and press "Create Account"<br />
+    <input type="text" id="uid" placeholder="Your Name"><br />
+    <input type="text" id="jid" placeholder="Your Jail ID #"><br />
+    <input type="password" id="pw" placeholder="Password"><br />
+    <input type="password" id="pw2" placeholder="Repeat Password"><br />
+    <input class="button" type="button" value="Create Account!" onclick="create()">
+</div>
+

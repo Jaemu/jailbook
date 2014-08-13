@@ -1,0 +1,98 @@
+<script type="text/javascript">
+var scrollBottom = false;
+
+function postItem() {
+   $("#addpost").slideDown();
+
+   $("#newpost").css({'display': 'none'});
+
+   var post = $('<div id = "main" class="paper" style="height:90px;"><div id="left" style="float: left; height:90px; width:120px"><img src="tonyb.jpg" style="height:90px" align="left"></div><div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>: '+$("#itemtype").val()+'</span></div></div>');
+   $("#posts").append(post);
+   $("#itemtype").val("");
+
+}
+
+function addPost() {
+   $("#addpost").slideUp();      
+   $("#newpost").css({'height': '0px', 'display': 'block'});
+   $("#newpost").animate({'height': '90px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
+}
+
+
+function keepBottom() {
+   $(window).scrollTop($(document).height());
+   if(scrollBottom) setTimeout(keepBottom, 10);
+}
+</script>
+
+<script>
+
+$(".bitch").click(function(e) {
+   var obj = e.target;
+   popup_v("Are you sure you want <i>this</i> person to be your bitch?", "Bitches be hatin?", "shiv.jpg", 
+     function() { // YES
+            console.debug(obj);
+            $(obj).val("Request Sent");
+            $(obj).unbind("click");
+
+        }, function() {});
+});
+
+</script>
+
+<div class="paper" id="main" style="height:290px">
+   <div id="stuff" style="height: 225px;">
+      &nbsp;
+      <div id="right" style="float: right; height: 120px;"> <!-- purely for animation -->
+         <img src="mattc.jpg" style="height: 120px;">
+      </div>
+      <div id="left" style="float: left;">
+         <span style="font-size: 30px">Matty Muse</span><input type="button" class="bitch button" style="float:right" value="request relationship"><br />
+         <span style="font-size: 15px">
+            Currently has served <b>8 years 3 months</b> of <b>12 consectuive life </b>
+            sentences for: <br>
+			<ul>
+            <li><b>Public Use of Bad Puns</b></li>
+            <li><b>Public Display of Affection with a Rubber Chicken</b></li>
+            <li><b>Mimery</b></li>
+			</ul>
+            <b>Height: </b>6ft 0in<br>
+            <b>Sex: </b>Male<br>
+            <b>Age: </b>27 Years Old<br>
+            <b>From: </b>Mendelson Trailer Park, Stony Brook, New York<br />
+            Is <b>not</b> currently anybodys bitch.<br />
+            <b>Known Aliases: </b>Silent But Deadly, Clucker Lover, The two third pun: P-U
+         </span>
+	     <hr>
+		    My hair is extremely shiny today.
+      </div>
+   </div>
+</div>
+
+<h1 align="center">Matty's Cell Wall</h1>
+<div id="posts">
+	<div id = "main" class="paper" style="height:90px;">
+		<div id="left" style="float: left; height:90px; width:120px">
+			<img src="Brian-Hardy.jpg" style="height:90px" align="left">
+		</div>
+		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/rhandy"><b>Brian Hardy</b></a>: Not the shower! Anywhere but the shower *shudder*</span>
+		</div>
+	</div>
+</div>
+<!-- This one is invisible, this is the form used to add a new post  -->
+	<div class="paper" id="newpost" style="display: none; width: 800px;">
+      <div id="left" style="float: left; height:90px; width:120px">
+			<img src="tonyb.jpg" style="height:90px" align="left">
+		</div>
+		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>:
+			<input type="text" placeholder="Write Your Post Here" id="itemtype"></span>
+		</div>
+		<div id="right" style="float:right">
+			<input class="button" type="button" value="Submit Item" onclick="postItem()">
+		</div>
+	</div>
+
+   <center><input type="button" id="addpost" value="Post on Matty Muse's Wall!" onclick="addPost()"></center>
+

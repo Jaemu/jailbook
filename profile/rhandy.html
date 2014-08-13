@@ -1,0 +1,91 @@
+<script type="text/javascript">
+var scrollBottom = false;
+
+function postItem() {
+   $("#addpost").slideDown();
+
+   $("#newpost").css({'display': 'none'});
+
+   var post = $('<div id = "main" class="paper" style="height:90px;"><div id="left" style="float: left; height:90p; width:120px"><img src="tonyb.jpg" style="height:90px" align="left"></div><div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;"><span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>: '+$("#itemtype").val()+'</span></div></div>');
+   $("#posts").append(post);
+   $("#itemtype").val("");
+
+}
+
+function addPost() {
+   $("#addpost").slideUp();      
+   $("#newpost").css({'height': '0px', 'display': 'block'});
+   $("#newpost").animate({'height': '90px'}, {'step': function() {$(window).scrollTop($(document).height())}} );
+}
+
+
+function keepBottom() {
+   $(window).scrollTop($(document).height());
+   if(scrollBottom) setTimeout(keepBottom, 10);
+}
+</script>
+
+
+
+<div class="paper" id="main">
+   <div id="stuff" style="height: 225px;">
+      &nbsp;
+      <div id="right" style="float: right; height: 120px;"> <!-- purely for animation -->
+         <img src="Brian-Hardy.jpg" style="height: 120px;">
+      </div>
+      <div id="left" style="float: left; height: 120px">
+         <span style="font-size: 30px">Brian Hardy</span><br />
+         <span style="font-size: 15px">
+            Currently has served <b>1 month</b> of a <b>life</b>
+            sentence for: <br>
+			<ul>
+			<li><b>murdering anyone who misunderstood his name</b></li>
+			</ul>
+            <b>Height: </b>6ft 1in<br>
+			<b>Sex: </b>Male<br>
+			<b>Age: </b>24 Years Old<br />
+            <b>From</b>: Flo Po, New York<br />
+            Is currently <a href="#profile/tonyb">Tee Pain</a>'s bitch.<br />
+            <b>Known Aliases: </b>Ryan Hardy, Brian Handy, Ryan Handy, "Randy" 
+         </span>
+      </div>
+   </div>
+   <hr>
+   Such a subtle troll
+</div>
+<h1 align="center">Brian's Cell Wall</h1>
+
+	<div id="posts">
+	<div id = "main" class="paper" style="height:90px;">
+		<div id="left" style="float: left; height:90px; width:120px">
+			<img src="tonyb.jpg" style="height:90px" align="left">
+		</div>
+		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>: Don't forget you owe me a cut of any cigs you get</span>
+		</div>
+	</div>
+	<div id="main" class="paper" style="height:90px;">
+		<div id="left" style="float: left; height:90px; width:120px">
+			<img src="mattc.jpg" style="height:90px" align="left">
+		</div>
+		<div id="left" style="float: left; height:90px; padding-top:35px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/mattc"><b>Matty Muse</b></a>: Yo, I heard you can "obtain" things. Meet me in the group shower to <br />discuss</span>
+		</div>
+	</div>
+</div>
+<!-- This one is invisible, this is the form used to add a new post  -->
+	<div class="paper" id="newpost" style="display: none; width: 800px;">
+      <div id="left" style="float: left; height:90px;">
+			<img src="tonyb.jpg" style="height:90px" align="left">
+		</div>
+		<div id="right" style="float: left; height:90px; padding-top:40px; padding-left:20px;">
+			<span style="font-size:15px"><a href="#profile/tonyb"><b>Tee Pain</b></a>:
+			<input type="text" placeholder="Write Your Post Here" id="itemtype"></span>
+		</div>
+		<div id="right" style="float:right">
+			<input class="button" type="button" value="Submit Item" onclick="postItem()">
+		</div>
+	</div>
+
+   <center><input type="button" id="addpost" value="Post on Brian Hardy's Wall!" onclick="addPost()"></center>
+
